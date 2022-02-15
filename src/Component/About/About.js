@@ -27,8 +27,8 @@ const About = () => {
       </div>
       <div className="container mx-auto py-10 px-3">
         <div>
-          <h2 className="about-heading text-4xl font-medium">OUR VOLUNTEERS</h2>
-          <p className="text-xl pt-8">The volunteers who give their time and talents help to fulfill our mission.</p>
+          <h2 className="about-heading text-center text-4xl font-medium">OUR VOLUNTEERS</h2>
+          <p className="text-xl text-center pt-8">The volunteers who give their time and talents help to fulfill our mission.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4 mt-20 mx-auto">
           {
