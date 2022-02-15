@@ -10,7 +10,7 @@ const Header = () => {
   //   const { user, logOut } = useAuth();
   return (
     <header className="header">
-      <Disclosure as="nav" className="bg-red-800">
+      <Disclosure as="nav" className="bg-red-700">
         {({ open }) => (
           <>
             <div className="max-w-7xl mx-auto px-2 py-1 sm:px-6 lg:px-8">
