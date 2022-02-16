@@ -35,24 +35,25 @@ const Chat = ({ socket, user, room }) => {
 
   return (
     <div className="mt-16">
-      <h1 className="mb-14 mt-4 font-semibold text-center">Chat box</h1>
-      <div className="border w-4/6 mx-auto p-4 h-60 overflow-scroll overflow-x-hidden  relative">
-        {messageList.map((messageInfo, index) => (
-          <div key={index}>
-            <div
-              className={
-                user === messageInfo.author
-                  ? "text-black text-left"
-                  : "text-green-600 text-right"
-              }
-            >
-              <h3 className="text-lg m-0 leading-0">{messageInfo.message}</h3>
-              <small className="text-xs">
-                From {messageInfo.author} &nbsp;at&nbsp;{messageInfo.time}
-              </small>
+      <div className="border w-4/6 mx-auto p-4 relative">
+        <div className="h-60 overflow-scroll overflow-x-hidden mb-12">
+          {messageList.map((messageInfo, index) => (
+            <div key={index}>
+              <div
+                className={`${
+                  user === messageInfo.author
+                    ? "text-black text-left"
+                    : "text-green-600 text-right"
+                } border border-gray-200 mb-2 p-1 px-3`}
+              >
+                <h3 className="text-lg m-0 leading-0">{messageInfo.message}</h3>
+                <small className="text-xs">
+                  From {messageInfo.author} &nbsp;at&nbsp;{messageInfo.time}
+                </small>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
         <form onSubmit={handleMessageSend}>
           <div className="mt-8 flex items-center w-full absolute bottom-0 left-0">
             <div className="w-full">
