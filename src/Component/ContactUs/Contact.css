@@ -1,9 +1,12 @@
-.contact-header{
-    background-image: linear-gradient(rgba(4, 9, 30, 0.541),rgba(4, 9, 30, 0.651)),url(../../images/about-bg.jpg);
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    padding: 100px 0;
-    background-attachment: scroll;
-
+.contact-header {
+  background-image: linear-gradient(
+      rgba(4, 9, 30, 0.541),
+      rgba(4, 9, 30, 0.651)
+    ),
+    url(../../images/about-bg.jpg);
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  padding: 100px 0;
+  background-attachment: scroll;
 }
