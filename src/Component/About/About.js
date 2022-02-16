@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './About.css'
 import Counter from "./Counter";
+import Reviews from "./Reviews/Reviews";
 import Volunteer from "./Volunteer";
 
 const About = () => {
@@ -51,6 +52,7 @@ const About = () => {
           </div>
         </div>
       </div>
+      <Reviews />
     </div>
   );
 };
