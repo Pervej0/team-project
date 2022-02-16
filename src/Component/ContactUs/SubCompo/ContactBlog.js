@@ -18,19 +18,20 @@ const ContactBlog = () => {
         </div>
         <div>
           <p className="text-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-            mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-            voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-            fugiat iusto fuga praesentium optio, eaque rerum! Provident
-            similique accusantium nemo autem. Veritatis obcaecati tenetur iure
-            eius earum ut molestias architecto voluptate aliquam nihil, eveniet
-            aliquid culpa officia aut! Impedit sit sunt quaerat,
+            Body weight of at least 45 kg. In good physical and mental health
+            with no chronic medical illness. Not on long term medications and
+            has not been intoxicated by alcohol within 24 hours prior to
+            donation. Should not be fasting and have had enough sleep (more than
+            5 hours) the night before donating Roughly 1 pint is given during a
+            donation. A healthy donor may donate red blood cells every 56 days,
+            or double red cells every 112 days. A healthy donor may donate
+            platelets as few as 7 days apart, but a maximum of 24 times a year.
             <br />
-            <br /> odit, tenetur error, harum nesciunt ipsum debitis quas
-            aliquid. Reprehenderit, quia. Quo neque error repudiandae fuga? Ipsa
-            laudantium molestias eos sapiente officiis modi at sunt excepturi
-            expedita sint? Sed quibusdam recusandae alias error harum maxime
-            adipisci amet laborum.
+            <br /> Roughly 1 pint is given during a donation. A healthy donor
+            may donate red blood cells every 56 days, or double red cells every
+            112 days. A healthy donor may donate platelets as few as 7 days
+            apart, but a maximum of 24 times a year.Roughly 1 pint is given
+            during a donation.
           </p>
         </div>
       </div>
