@@ -21,7 +21,7 @@ const BloodPost = ({ post }) => {
             <p className="py-4">{post.message}</p>
           </div>
           <div>
-            <Link to="/chitchat" className="border px-5 py-1">
+            <Link to={`/chitchat/${post.id}`} className="border px-5 py-1">
               Chit Chat
             </Link>
           </div>
