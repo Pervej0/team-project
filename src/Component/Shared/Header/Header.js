@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuAlt1Icon, XIcon } from "@heroicons/react/solid";
 import { Link, NavLink } from "react-router-dom";
-import useAuth from '../../../hooks/useAuth'
+import useAuth from "../../../hooks/useAuth";
 // import Logo from "../../images/logo.webp";
 import "./Header.css";
 
@@ -40,7 +40,7 @@ const Header = () => {
                   <div className="hidden sm:block sm:ml-auto mt-3">
                     <div className="flex space-x-4 text-white font-medium">
                       <NavLink to="/home">Home</NavLink>
-
+                      <NavLink to="/chitchat">Message</NavLink>
                       <NavLink to="/about">About</NavLink>
                       <NavLink to="/contact">Contact Us</NavLink>
                     </div>
@@ -74,12 +74,12 @@ const Header = () => {
                           <h2>{user.displayName}</h2>
                         </Menu.Item>
                         <Menu.Item>
-                         <button
-                         className="bg-gray-900 text-white px-10 py-1 rounded my-3" 
-                         onClick={logOut}
-                         >
-                           Log Out
-                         </button>
+                          <button
+                            className="bg-gray-900 text-white px-10 py-1 rounded my-3"
+                            onClick={logOut}
+                          >
+                            Log Out
+                          </button>
                         </Menu.Item>
                       </Menu.Items>
                     </Transition>
