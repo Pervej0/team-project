@@ -8,7 +8,7 @@ const AllOrders = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://ghastly-monster-29562.herokuapp.com/booking")
+    fetch("https://serene-spire-70074.herokuapp.com/post")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -37,7 +37,7 @@ const AllOrders = () => {
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
-                  <tr>
+                <tr>
                     <th
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -48,19 +48,37 @@ const AllOrders = () => {
                       scope="col"
                       className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Title
+                      Message
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Status
+                      Type
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Role
+                      Date
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Group
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Phone
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Time
                     </th>
                     <th scope="col" className="relative px-6 py-3">
                       <span className="sr-only">Edit</span>
