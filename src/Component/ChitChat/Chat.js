@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Chat = ({ socket, user, room }) => {
+const Chat = ({ socket, userName, userEmail, room }) => {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
 
@@ -9,24 +9,23 @@ const Chat = ({ socket, user, room }) => {
       setMessageList((prev) => [...prev, data]);
     });
   }, [socket]);
-
+  console.log(messageList);
   const handleMessageSend = async (e) => {
     e.preventDefault();
-    console.log(user, room);
-    if (user === "" || room === "") {
+    let local = new Date().toLocaleString();
+    if (userName === "" || room === "") {
       alert("Please input your name and join a room");
       setCurrentMessage("");
       return;
     } else {
       const messageData = {
+        name: userEmail,
         room,
-        author: user,
+        author: userName,
         message: currentMessage,
-        time:
-          new Date(Date.now()).getHours() +
-          ":" +
-          new Date(Date.now()).getMinutes(),
+        time: local.split(",")[1],
       };
+
       await socket.emit("send_message", messageData);
       setMessageList((prev) => [...prev, messageData]);
       setCurrentMessage("");
@@ -41,7 +40,7 @@ const Chat = ({ socket, user, room }) => {
             <div key={index}>
               <div
                 className={`${
-                  user === messageInfo.author
+                  userName === messageInfo.author
                     ? "text-black text-left"
                     : "text-green-600 text-right"
                 } border border-gray-200 mb-2 p-1 px-3`}

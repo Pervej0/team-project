@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import BloodPost from "./subCompo/BloodPost";
-import Banner from '../Home/Banner/Banner'
+import Banner from "../Home/Banner/Banner";
 import PostForm from "./PostForm/PostForm";
-
 
 const Home = () => {
   const [postData, setPostData] = useState([]);
 
   useEffect(() => {
-    fetch("./fakeData.json")
+    fetch("http://localhost:4000/post")
       .then((res) => res.json())
       .then((data) => setPostData(data));
   }, []);
-
+  console.log(postData);
   return (
     <>
       <Banner />
