@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Banner from '../Home/Banner/Banner'
 import PostForm from "./PostForm/PostForm";
-
+import Post from "./Post/Post";
 
 const Home = () => {
   const [postData, setPostData] = useState([]);
@@ -30,16 +30,18 @@ const Home = () => {
             <div class="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
 
               {
-                
+
+                postData.map(post => <Post
+
+                ></Post>)
+
+
               }
 
             </div>
 
 
           </div>
-
-
-
 
 
 
@@ -82,7 +84,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
 
     </>
   );
