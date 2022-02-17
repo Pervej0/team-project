@@ -8,8 +8,7 @@ const socket = io.connect("http://localhost:4000/");
 const ChitChat = () => {
   // const [room, setRoom] = useState("");
   const { user } = useAuth();
-  const { roomId } = useParams();
-  console.log(roomId);
+  const { roomId, email } = useParams();
 
   socket.emit("join_room", roomId);
   return (
@@ -18,7 +17,7 @@ const ChitChat = () => {
       <Chat
         socket={socket}
         userName={user.displayName}
-        userEmail={user.email}
+        userEmail={email}
         room={roomId}
       />
     </div>
