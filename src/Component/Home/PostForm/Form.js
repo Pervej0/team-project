@@ -27,9 +27,7 @@ const Form = () => {
     let local = new Date().toLocaleString();
     data.time = local.split(",")[1];
 
-    console.log(data);
-
-    fetch("https://serene-spire-70074.herokuapp.com/post", {
+    fetch("https://polar-tor-73503.herokuapp.com/post", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -36,8 +36,8 @@ const useFirebase = () => {
         updateProfile(auth.currentUser, {
           displayName: name,
         })
-          .then(() => {})
-          .catch((error) => {});
+          .then(() => { })
+          .catch((error) => { });
       })
       .catch((error) => {
         setError(error.message);
@@ -49,7 +49,7 @@ const useFirebase = () => {
     setIsLooding(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const destination = location?.state?.from || "/dashboard";
+        const destination = location?.state?.from || "/";
         history(destination);
         setError("");
       })
@@ -62,7 +62,7 @@ const useFirebase = () => {
     setIsLooding(true);
     signInWithPopup(auth, googleProvider)
       .then((result) => {
-        const destination = location?.state?.from || "/dashboard";
+        const destination = location?.state?.from || "/";
         history(destination);
         setError("");
         const user = result.user;
