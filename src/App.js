@@ -1,7 +1,7 @@
+import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Component/Shared/Header/Header";
-
 import Home from "./Component/Home/Home";
 import About from "./Component/About/About";
 import ContactUs from "./Component/ContactUs/ContactUs";
@@ -11,9 +11,14 @@ import AuthProvider from "./Context/AuthProvider/AuthProvider";
 import Register from "./Authentication/Register/Register";
 import ChitChat from "./Component/ChitChat/ChitChat";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+<<<<<<< HEAD
 import AddReview from "./Component/Dashboard/AddReview/AddReview";
 import MyOrders from "./Component/Dashboard/AddReview/MyOrders/MyOrders";
 import AllOrders from "./Component/Dashboard/AllOrders/AllOrders";
+=======
+
+
+>>>>>>> 199803563d4387d1df2d2829d068ec726100dd82
 function App() {
   return (
     <div className="App">
@@ -54,7 +59,15 @@ function App() {
               }
             />
             <Route
-              path="//chitchat/:roomId"
+              path="/chitchat/:email"
+              element={
+                <PrivateRoute>
+                  <ChitChat />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/chitchat"
               element={
                 <PrivateRoute>
                   <ChitChat />
@@ -87,6 +100,8 @@ function App() {
             />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+
+
           </Routes>
           <Footer />
         </BrowserRouter>
