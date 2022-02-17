@@ -5,12 +5,22 @@ import Post from "./Post/Post";
 
 const Home = () => {
   const [postData, setPostData] = useState([]);
+  const [pageCount, setPageCount] = useState(0)
+  const [page, setPage] = useState(0)
+  const size = 5
 
   useEffect(() => {
-    fetch("https://serene-spire-70074.herokuapp.com/post")
+    fetch(`http://localhost:4000/post?page=${page}&&size=${size}`)
       .then((res) => res.json())
-      .then((data) => setPostData(data));
-  }, []);
+      .then((data) => {
+        setPostData(data.post)
+        const count = data.count
+        const pageNumber = Math.ceil(count / size)
+        setPageCount(pageNumber)
+
+      });
+  }, [page, postData]);
+
 
   return (
     <>
@@ -24,13 +34,29 @@ const Home = () => {
           </h1>
         </div>
         <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
-          <div className="flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
+          <div className="bg-gray-50 flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
             <div className="flex flex-col justify-start items-start px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
               {postData.map((post) => (
                 <Post key={post.id} post={post}></Post>
               ))}
+
+              <div className="flex mt-5">
+                {
+                  [...Array(pageCount).keys()].map(number => <button
+                    key={number}
+                    onClick={() => setPage(number)}
+                    className={number === page ? 'h-10 px-5 mr-2 transition-colors duration-150 bg-indigo-600 text-white border  border-indigo-600 focus:shadow-outline' : 'h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white border border-indigo-600 focus:shadow-outline mr-2'}
+
+                  >{number + 1}</button>)
+                }
+              </div>
             </div>
+
           </div>
+
+
+
+
           {/* sidebar */}
           <div className="bg-gray-50 border dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col h-4/5">
             <h3 className="text-xl dark:text-white font-semibold leading-5 text-gray-800">
@@ -107,6 +133,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+
       </div>
     </>
   );
