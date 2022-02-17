@@ -54,7 +54,15 @@ function App() {
               }
             />
             <Route
-              path="//chitchat/:roomId"
+              path="/chitchat/:email"
+              element={
+                <PrivateRoute>
+                  <ChitChat />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/chitchat"
               element={
                 <PrivateRoute>
                   <ChitChat />
