@@ -33,7 +33,7 @@ const AddReview = () => {
           .then((res) => {
             if (res.insertedId) {
               console.log(data);
-              swal("You have Added a AddReview", "Well Done!", {
+              swal("You have Added a AddReview now", "Well Done!", {
                 icon: "success",
                 timer: 1300,
               });
