@@ -1,5 +1,6 @@
-import "./App.css";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 import Header from "./Component/Shared/Header/Header";
 import Home from "./Component/Home/Home";
 import About from "./Component/About/About";
@@ -9,7 +10,8 @@ import Login from "./Authentication/Login/Login";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
 import Register from "./Authentication/Register/Register";
 import ChitChat from "./Component/ChitChat/ChitChat";
-import PrivateRoute from './PrivateRoute/PrivateRoute'
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+
 
 function App() {
   return (
@@ -18,13 +20,13 @@ function App() {
         <BrowserRouter>
           <Header />
           <Routes>
-
             <Route
               path="/"
               element={
                 <PrivateRoute>
                   <Home />
-                </PrivateRoute>}
+                </PrivateRoute>
+              }
             />
 
             <Route
@@ -32,21 +34,24 @@ function App() {
               element={
                 <PrivateRoute>
                   <Home />
-                </PrivateRoute>}
+                </PrivateRoute>
+              }
             />
             <Route
               path="/about"
               element={
                 <PrivateRoute>
                   <About />
-                </PrivateRoute>}
+                </PrivateRoute>
+              }
             />
             <Route
               path="/contact"
               element={
                 <PrivateRoute>
                   <ContactUs />
-                </PrivateRoute>}
+                </PrivateRoute>
+              }
             />
 
             <Route
@@ -54,7 +59,8 @@ function App() {
               element={
                 <PrivateRoute>
                   <ChitChat />
-                </PrivateRoute>}
+                </PrivateRoute>
+              }
             />
 
             <Route path="/login" element={<Login />} />
