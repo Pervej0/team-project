@@ -23,7 +23,7 @@ const MyPostss = () => {
   return (
     <div>
       <h1 className="mt-3 mb-3 text-4xl font-bold text-center pt-3 text-gray-900">
-        My Post List
+        My Post List Here
       </h1>
       <div className="flex flex-col container mx-auto my-8">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
