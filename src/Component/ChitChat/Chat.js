@@ -10,13 +10,13 @@ const Chat = ({ socket, userName, room }) => {
   useEffect(() => {
     socket.on("received_message", (data) => {
       // setMessageList((prev) => [...prev, data]);
-      fetch("https://serene-spire-70074.herokuapp.com/chat", {
+      fetch("https://polar-tor-73503.herokuapp.com/chat", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),
       });
     });
-    fetch(`https://serene-spire-70074.herokuapp.com/chat/${user.email}`)
+    fetch(`https://polar-tor-73503.herokuapp.com/chat/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {
@@ -40,7 +40,7 @@ const Chat = ({ socket, userName, room }) => {
         message: currentMessage,
         time: local.split(",")[1],
       };
-      fetch("https://serene-spire-70074.herokuapp.com/chat", {
+      fetch("https://polar-tor-73503.herokuapp.com/chat", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(messageData),
