@@ -1,18 +1,29 @@
 import React, { useEffect, useState } from "react";
+import useAuth from "../../hooks/useAuth";
 
-const Chat = ({ socket, userName, userEmail, room }) => {
+const Chat = ({ socket, userName, room }) => {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
-
+  const [isSend, setIsSend] = useState(false);
+  const { user } = useAuth();
+  console.log(room);
   useEffect(() => {
     socket.on("received_message", (data) => {
-      setMessageList((prev) => [...prev, data]);
-      fetch("http://localhost:4000/chat", {
+      // setMessageList((prev) => [...prev, data]);
+      fetch("https://serene-spire-70074.herokuapp.com/chat", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),
       });
     });
+    fetch(`https://serene-spire-70074.herokuapp.com/chat/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.length > 0) {
+          setMessageList(data);
+          setIsSend(true);
+        }
+      });
   }, [socket]);
 
   const handleMessageSend = async (e) => {
@@ -24,13 +35,12 @@ const Chat = ({ socket, userName, userEmail, room }) => {
       return;
     } else {
       const messageData = {
-        email: userEmail,
         room,
         author: userName,
         message: currentMessage,
         time: local.split(",")[1],
       };
-      fetch("http://localhost:4000/chat", {
+      fetch("https://serene-spire-70074.herokuapp.com/chat", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(messageData),
