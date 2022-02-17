@@ -9,6 +9,7 @@ import Login from "./Authentication/Login/Login";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
 import Register from "./Authentication/Register/Register";
 import ChitChat from "./Component/ChitChat/ChitChat";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 function App() {
   return (
     <div className="App">
@@ -16,11 +17,49 @@ function App() {
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route index path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/chitchat/:email" element={<ChitChat />} />
+            <Route
+              path="/"
+              element={
+                <PrivateRoute>
+                  <Home />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="/home"
+              element={
+                <PrivateRoute>
+                  <Home />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <PrivateRoute>
+                  <About />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <PrivateRoute>
+                  <ContactUs />
+                </PrivateRoute>
+              }
+            />
+
+            <Route
+              path="//chitchat/:roomId"
+              element={
+                <PrivateRoute>
+                  <ChitChat />
+                </PrivateRoute>
+              }
+            />
+
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>
