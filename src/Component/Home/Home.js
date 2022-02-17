@@ -10,7 +10,9 @@ const Home = () => {
   const size = 5;
 
   useEffect(() => {
-    fetch(`http://localhost:4000/post?page=${page}&&size=${size}`)
+    fetch(
+      `https://serene-spire-70074.herokuapp.com/post?page=${page}&&size=${size}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setPostData(data.post);
@@ -19,7 +21,7 @@ const Home = () => {
         setPageCount(pageNumber);
       });
   }, [page, postData]);
-
+  console.log(pageCount);
   return (
     <>
       <Banner />
@@ -34,12 +36,12 @@ const Home = () => {
         <div className="mt-10 flex flex-col xl:flex-row jusitfy-center items-stretch w-full xl:space-x-8 space-y-4 md:space-y-6 xl:space-y-0">
           <div className="bg-gray-50 flex flex-col justify-start items-start w-full space-y-4 md:space-y-6 xl:space-y-8">
             <div className="flex flex-col justify-start items-start px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
-              {postData.map((post) => (
+              {postData?.map((post) => (
                 <Post key={post.id} post={post}></Post>
               ))}
 
               <div className="flex mt-5">
-                {[...Array(pageCount).keys()].map((number) => (
+                {[...Array(pageCount)?.keys()]?.map((number) => (
                   <button
                     key={number}
                     onClick={() => setPage(number)}
