@@ -23,20 +23,9 @@ console.log(location)
     fetch(`https://ghastly-monster-29562.herokuapp.com/booking/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
-        // const statusUpdate = allBookings.filter(()=>allbook.data === data.status)
         setUserUpdate(data);
       });
   };
-  // useEffect(() => {
-  //   fetch("https://ghastly-monster-29562.herokuapp.com/booking")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       // console.log(data);
-  //       setAllBookings(data);
-  //       setIsLoading(false);
-  //     });
-  // }, [isLoading]);
 
   const onSubmit = (data) => {
     console.log(data);
