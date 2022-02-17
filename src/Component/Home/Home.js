@@ -7,7 +7,7 @@ const Home = () => {
   const [postData, setPostData] = useState([]);
 
   useEffect(() => {
-    fetch("./fakeData.json")
+    fetch("http://localhost:4000/post")
       .then((res) => res.json())
       .then((data) => setPostData(data));
   }, []);
@@ -30,16 +30,13 @@ const Home = () => {
             <div class="flex flex-col justify-start items-start dark:bg-gray-800 bg-gray-50 px-4 py-4 md:py-6 md:p-6 xl:p-8 w-full">
 
               {
-
                 postData.map(post => <Post
-
+                  key={post.id}
+                  post={post}
                 ></Post>)
-
-
               }
 
             </div>
-
 
           </div>
 
