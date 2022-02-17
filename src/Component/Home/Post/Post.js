@@ -4,6 +4,7 @@ import React from 'react';
 const Post = ({ post }) => {
     const { name, email, group, message, phone, photo, type, time } = post
 
+    
     return (
         <>
             <div class="border my-2">

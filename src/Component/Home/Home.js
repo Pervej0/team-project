@@ -42,6 +42,8 @@ const Home = () => {
 
 
 
+
+
           <div class="bg-gray-50 dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col h-4/5">
             <h3 class="text-xl dark:text-white font-semibold leading-5 text-gray-800">Customer</h3>
             <div class="flex flex-col md:flex-row xl:flex-col justify-start items-stretch h-full w-full md:space-x-6 lg:space-x-8 xl:space-x-0">

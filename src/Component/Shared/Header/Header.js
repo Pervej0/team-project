@@ -73,14 +73,26 @@ const Header = () => {
                         <Menu.Item>
                           <h2>{user.displayName}</h2>
                         </Menu.Item>
-                        <Menu.Item>
-                         <button
-                         className="bg-gray-900 text-white px-10 py-1 rounded my-3" 
-                         onClick={logOut}
-                         >
-                           Log Out
-                         </button>
-                        </Menu.Item>
+                        {user.email ?
+                          <Menu.Item>
+                            <button
+                              className="bg-gray-900 text-white px-10 py-1 rounded my-3"
+                              onClick={logOut}
+                            >
+                              Log Out
+                            </button>
+                          </Menu.Item> :
+
+                          <Menu.Item>
+                            <button
+                              className="bg-gray-900 text-white px-10 py-1 rounded my-3"
+                              onClick={logOut}
+                            >
+                              Log In
+                            </button>
+                          </Menu.Item>
+                        }
+
                       </Menu.Items>
                     </Transition>
                   </Menu>
