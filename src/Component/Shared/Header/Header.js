@@ -3,11 +3,12 @@ import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { MenuAlt1Icon, XIcon } from "@heroicons/react/solid";
 import { Link, NavLink } from "react-router-dom";
+import useAuth from '../../../hooks/useAuth'
 // import Logo from "../../images/logo.webp";
 import "./Header.css";
 
 const Header = () => {
-  //   const { user, logOut } = useAuth();
+  const { user, logOut } = useAuth();
   return (
     <header className="header">
       <Disclosure as="nav" className="bg-red-700">
@@ -68,9 +69,17 @@ const Header = () => {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-3 px-5 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <Menu.Item>
-                          <h2>Pervej</h2>
+                          <h2>{user.displayName}</h2>
+                        </Menu.Item>
+                        <Menu.Item>
+                         <button
+                         className="bg-gray-900 text-white px-10 py-1 rounded my-3" 
+                         onClick={logOut}
+                         >
+                           Log Out
+                         </button>
                         </Menu.Item>
                       </Menu.Items>
                     </Transition>

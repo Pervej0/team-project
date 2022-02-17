@@ -1,0 +1,34 @@
+.login-register{
+    display: flex;
+    justify-content: space-between;
+    min-height: 100vh;
+    align-items: center;
+    padding: 2rem 5rem;
+    flex-direction: column;
+}
+.Login-form{
+    width: 50%;
+}
+
+.Login-form form{
+    display: flex;
+    flex-direction: column;
+}
+.Login-form form p{
+    margin: 0;
+    padding: 1rem 0 .3rem 0;
+    font-size: 1rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.Login-form form input{
+    border: none;
+    padding: .5rem 0;
+    border-bottom: 1px solid gray;
+}
+.Login-form form input[type="submit"]{
+    background-color: cornflowerblue;
+}
+
+.Login-form form input[type="submit"]:hover{
+    background-color: gainsboro
+}
