@@ -29,7 +29,7 @@ const Form = () => {
 
     console.log(data);
 
-    fetch("http://localhost:4000/post", {
+    fetch("https://serene-spire-70074.herokuapp.com/post", {
       method: "POST",
       headers: {
         "content-type": "application/json",

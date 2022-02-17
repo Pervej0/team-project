@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 import useAuth from "../../hooks/useAuth";
 import Chat from "./Chat";
 
-const socket = io.connect("http://localhost:4000/");
+const socket = io.connect("https://serene-spire-70074.herokuapp.com/");
 const ChitChat = () => {
   // const [room, setRoom] = useState("");
   const { user } = useAuth();
