@@ -7,9 +7,14 @@ const Chat = ({ socket, userName, userEmail, room }) => {
   useEffect(() => {
     socket.on("received_message", (data) => {
       setMessageList((prev) => [...prev, data]);
+      fetch("http://localhost:4000/chat", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(data),
+      });
     });
   }, [socket]);
-  console.log(messageList);
+
   const handleMessageSend = async (e) => {
     e.preventDefault();
     let local = new Date().toLocaleString();
@@ -19,13 +24,17 @@ const Chat = ({ socket, userName, userEmail, room }) => {
       return;
     } else {
       const messageData = {
-        name: userEmail,
+        email: userEmail,
         room,
         author: userName,
         message: currentMessage,
         time: local.split(",")[1],
       };
-
+      fetch("http://localhost:4000/chat", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(messageData),
+      });
       await socket.emit("send_message", messageData);
       setMessageList((prev) => [...prev, messageData]);
       setCurrentMessage("");
