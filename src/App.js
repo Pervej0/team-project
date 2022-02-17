@@ -25,7 +25,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-
             <Route
               path="/home"
               element={
@@ -50,7 +49,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-
             <Route
               path="//chitchat/:roomId"
               element={
@@ -59,7 +57,6 @@ function App() {
                 </PrivateRoute>
               }
             />
-
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>

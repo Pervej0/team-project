@@ -7,7 +7,7 @@ const Chat = ({ socket, userName, userEmail, room }) => {
   useEffect(() => {
     socket.on("received_message", (data) => {
       setMessageList((prev) => [...prev, data]);
-      fetch("https://serene-spire-70074.herokuapp.com/chat", {
+      fetch("http://localhost:4000/chat", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(data),
@@ -30,7 +30,7 @@ const Chat = ({ socket, userName, userEmail, room }) => {
         message: currentMessage,
         time: local.split(",")[1],
       };
-      fetch("https://serene-spire-70074.herokuapp.com/chat", {
+      fetch("http://localhost:4000/chat", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(messageData),
