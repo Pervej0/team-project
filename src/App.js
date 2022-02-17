@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Component/Shared/Header/Header";
@@ -9,7 +10,8 @@ import Login from "./Authentication/Login/Login";
 import AuthProvider from "./Context/AuthProvider/AuthProvider";
 import Register from "./Authentication/Register/Register";
 import ChitChat from "./Component/ChitChat/ChitChat";
-import PrivateRoute from './PrivateRoute/PrivateRoute'
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
+
 
 function App() {
   return (
@@ -18,48 +20,54 @@ function App() {
         <BrowserRouter>
           <Header />
           <Routes>
-
             <Route
               path="/"
               element={
                 <PrivateRoute>
                   <Home />
-                </PrivateRoute>}
+                </PrivateRoute>
+              }
             />
-
             <Route
               path="/home"
               element={
                 <PrivateRoute>
                   <Home />
-                </PrivateRoute>}
+                </PrivateRoute>
+              }
             />
             <Route
               path="/about"
               element={
                 <PrivateRoute>
                   <About />
-                </PrivateRoute>}
+                </PrivateRoute>
+              }
             />
             <Route
               path="/contact"
               element={
                 <PrivateRoute>
                   <ContactUs />
-                </PrivateRoute>}
+                </PrivateRoute>
+              }
             />
-
             <Route
-              path="//chitchat/:roomId"
+              path="/chitchat/:email"
               element={
                 <PrivateRoute>
                   <ChitChat />
-                </PrivateRoute>}
+                </PrivateRoute>
+              }
             />
-
-
-
-
+            <Route
+              path="/chitchat"
+              element={
+                <PrivateRoute>
+                  <ChitChat />
+                </PrivateRoute>
+              }
+            />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
