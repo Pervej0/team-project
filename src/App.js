@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Component/Shared/Header/Header";
-import Headert from "./Component/Shared/Header/Headert";
 
 import Home from "./Component/Home/Home";
 import About from "./Component/About/About";
@@ -17,7 +16,6 @@ function App() {
       <AuthProvider>
         <BrowserRouter>
           <Header />
-          <Headert />
           <Routes>
             <Route index path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
