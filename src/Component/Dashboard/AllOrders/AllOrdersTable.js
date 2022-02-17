@@ -112,9 +112,24 @@ console.log(location)
           </div>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
-          <div className="text-sm text-gray-900">{allBooking?.title}</div>
+          <div className="text-sm text-gray-900">{allBooking?.messsage}</div>
         </td>
         <td className="px-6 py-4 whitespace-nowrap">
+          <div className="text-sm text-gray-900">{allBooking?.type}</div>
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap">
+          <div className="text-sm text-gray-900">{allBooking?.date}</div>
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap">
+          <div className="text-sm text-gray-900">{allBooking?.group}</div>
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap">
+          <div className="text-sm text-gray-900">{allBooking?.phone}</div>
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap">
+          <div className="text-sm text-gray-900">{allBooking?.time}</div>
+        </td>
+        {/* <td className="px-6 py-4 whitespace-nowrap">
           {!updateForm && (
             <span
               className={
@@ -142,8 +157,8 @@ console.log(location)
               </form>
             </div>
           )}
-        </td>
-        {
+        </td> */}
+        {/* {
         Onlyedit && (
           <td className="px-6 flex justify-center space-x-2 py-4 whitespace-nowrap text-right text-sm font-medium">
             <button
@@ -163,8 +178,8 @@ console.log(location)
             </button>
           </td>
         )
-        }
-        {
+        } */}
+        {/* {
         !Onlyedit && (
           <td className="px-6 flex justify-center space-x-2 py-4 whitespace-nowrap text-right text-sm font-medium">
             <button
@@ -175,7 +190,7 @@ console.log(location)
             </button>
           </td>
         )
-        }
+        } */}
       </tr>
     </>
   );
