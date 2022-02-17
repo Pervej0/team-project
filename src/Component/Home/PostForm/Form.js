@@ -43,7 +43,7 @@ const Form = () => {
           Swal.fire({
             position: "top-center",
             icon: "success",
-            title: "Order success",
+            title: "Post uploaded",
             showConfirmButton: false,
             timer: 1500,
           });
