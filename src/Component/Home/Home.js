@@ -5,22 +5,20 @@ import Post from "./Post/Post";
 
 const Home = () => {
   const [postData, setPostData] = useState([]);
-  const [pageCount, setPageCount] = useState(0)
-  const [page, setPage] = useState(0)
-  const size = 5
+  const [pageCount, setPageCount] = useState(0);
+  const [page, setPage] = useState(0);
+  const size = 5;
 
   useEffect(() => {
     fetch(`http://localhost:4000/post?page=${page}&&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
-        setPostData(data.post)
-        const count = data.count
-        const pageNumber = Math.ceil(count / size)
-        setPageCount(pageNumber)
-
+        setPostData(data.post);
+        const count = data.count;
+        const pageNumber = Math.ceil(count / size);
+        setPageCount(pageNumber);
       });
   }, [page, postData]);
-
 
   return (
     <>
@@ -41,21 +39,22 @@ const Home = () => {
               ))}
 
               <div className="flex mt-5">
-                {
-                  [...Array(pageCount).keys()].map(number => <button
+                {[...Array(pageCount).keys()].map((number) => (
+                  <button
                     key={number}
                     onClick={() => setPage(number)}
-                    className={number === page ? 'h-10 px-5 mr-2 transition-colors duration-150 bg-indigo-600 text-white border  border-indigo-600 focus:shadow-outline' : 'h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white border border-indigo-600 focus:shadow-outline mr-2'}
-
-                  >{number + 1}</button>)
-                }
+                    className={
+                      number === page
+                        ? "h-10 px-5 mr-2 transition-colors duration-150 bg-indigo-600 text-white border  border-indigo-600 focus:shadow-outline"
+                        : "h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white border border-indigo-600 focus:shadow-outline mr-2"
+                    }
+                  >
+                    {number + 1}
+                  </button>
+                ))}
               </div>
             </div>
-
           </div>
-
-
-
 
           {/* sidebar */}
           <div className="bg-gray-50 border dark:bg-gray-800 w-full xl:w-96 flex justify-between items-center md:items-start px-4 py-6 md:p-6 xl:p-8 flex-col h-4/5">
@@ -133,7 +132,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
       </div>
     </>
   );
