@@ -21,7 +21,7 @@ const Home = () => {
         setPageCount(pageNumber);
       });
   }, [page, postData]);
-  console.log(pageCount);
+  // console.log(pageCount);
   return (
     <>
       <Banner />

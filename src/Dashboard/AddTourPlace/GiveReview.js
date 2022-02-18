@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router";
+import { useNavigate } from "react-router";
 import swal from "sweetalert";
 
 const GiveReview = () => {
@@ -10,8 +10,7 @@ const GiveReview = () => {
     reset,
     formState: { errors },
   } = useForm();
-
-  const history = useLocation();
+  let navigate = useNavigate();
   const onSubmit = (data) => {
     if (data.type === "Choose") {
       alert("Please choose your type");
@@ -24,7 +23,7 @@ const GiveReview = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch("https://polar-tor-73503.herokuapp.com/review", {
+        fetch("https://polar-tor-73503.herokuapp.com/review/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -40,7 +39,7 @@ const GiveReview = () => {
                 timer: 1300,
               });
               reset();
-              history.push("/home");
+              navigate("/home");
             }
           });
       }
@@ -60,15 +59,35 @@ const GiveReview = () => {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
+                <label htmlFor="Name" className="sr-only">
+                  Name
+                </label>
+                <input
+                  id="Name"
+                  name="Name"
+                  type="text"
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  {...register("name", { required: true })}
+                  placeholder="Name"
+                />
+                {errors.name && (
+                  <span className="text-red-500 text-sm italic">
+                    Name is required{" "}
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className="rounded-md shadow-sm -space-y-px">
+              <div>
                 <label htmlFor="title-tour" className="sr-only">
-                  Title
+                  Profession
                 </label>
                 <input
                   id="title-tour"
-                  name="title"
+                  name="profession"
                   type="text"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("title", { required: true })}
+                  {...register("profession", { required: true })}
                   placeholder="Title"
                 />
                 {errors.title && (
@@ -79,126 +98,6 @@ const GiveReview = () => {
               </div>
             </div>
 
-            {/* <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="image" className="sr-only">
-                  image
-                </label>
-
-                <input
-                  id="image"
-                  name="img"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("img", { required: true })}
-                  placeholder="Image-link"
-                />
-                {errors.img && (
-                  <span className="text-red-500 text-sm italic">
-                    This Field is required{" "}
-                  </span>
-                )}
-              </div>
-            </div> */}
-            <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="country-destination" className="sr-only">
-                  Name
-                </label>
-                <input
-                  id="country-destination"
-                  name="country-destination"
-                  type="text"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("countrydestination", { required: true })}
-                  placeholder="Name"
-                />
-                {errors.countrydestination && (
-                  <span className="text-red-500 text-sm italic">
-                    Name is required{" "}
-                  </span>
-                )}
-              </div>
-            </div>
-            {/* <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="price" className="sr-only">
-                  price
-                </label>
-                <input
-                  id="price"
-                  name="price"
-                  type="number"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("price", { required: true })}
-                  placeholder="Price"
-                />
-                {errors.price && (
-                  <span className="text-red-500 text-sm italic">
-                    Price is required{" "}
-                  </span>
-                )}
-              </div>
-            </div> */}
-            {/* <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="location" className="sr-only">
-                  location
-                </label>
-                <input
-                  id="location"
-                  name="location"
-                  type="text"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("location", { required: true })}
-                  placeholder="Place location"
-                />
-                {errors.location && (
-                  <span className="text-red-500 text-sm italic">
-                    Place location is required{" "}
-                  </span>
-                )}
-              </div>
-            </div> */}
-            {/* <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="group-size" className="sr-only">
-                  group-size
-                </label>
-                <input
-                  id="group-size"
-                  name="group-size"
-                  type="number"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("groupsize", { required: true })}
-                  placeholder="Group Size"
-                />
-                {errors.groupsize && (
-                  <span className="text-red-500 text-sm italic">
-                    Group Size is required{" "}
-                  </span>
-                )}
-              </div>
-            </div> */}
-            {/* <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="total-days" className="sr-only">
-                  total-days
-                </label>
-                <input
-                  id="total-days"
-                  name="total-days"
-                  type="number"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("days", { required: true })}
-                  placeholder="Total-Days"
-                />
-                {errors.days && (
-                  <span className="text-red-500 text-sm italic">
-                    Group Size is required{" "}
-                  </span>
-                )}
-              </div>
-            </div> */}
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <label htmlFor="place-details" className="sr-only">

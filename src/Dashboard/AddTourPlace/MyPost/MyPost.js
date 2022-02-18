@@ -12,7 +12,7 @@ const MyPost = () => {
     fetch(`https://polar-tor-73503.herokuapp.com/post/`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data.post);
+        console.log(data.post);
         // setAllBookings(data);
         const datapost = data.post;
         const mybooking = datapost.filter((dt) => dt.email === user.email);
@@ -80,7 +80,13 @@ const MyPost = () => {
                     <th scope="col" className="relative px-6 py-3">
                       <span className="sr-only">Edit</span>
                     </th>
-                  </tr>
+                  <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                      Status
+                    </th>
+                      </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                 {allBookings?.map((allBooking) => (

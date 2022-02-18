@@ -16,6 +16,7 @@ const Form = () => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
   const onSubmit = (data) => {
+    data.status = 'New';
     if (data.name === "" || data.email === "") {
       data.name = user.displayName;
       data.email = user.email;
