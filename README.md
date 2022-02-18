@@ -13,12 +13,12 @@ This is blood donation based web application build with MERN.
 
 ## The Features we implemented:
 
-- User can login/register account the process establish through firebase authentication also added Google provider.
+- Users can login/register accounts the process establish through firebase authentication also added Google provider.
 
-- User can post for blood as a type in Donor or Recepient and also can make chit-chat with the post author (Which is under constructing).
+- User can post for blood as a type in Donor or Recipient and also can make chit-chat with the post author (Which is under construction).
 
-- Under user dashboard there are 3 routes where CRUD operation implemented.
+- Under the user dashboard, there are 3 routes where CRUD operation is implemented.
 
-- Through Add Review page user can review about his exprience.
+- Through Add Review page user can review his experience.
 
-- There also integrate backend pagination which gives user best exprience to move.
+- There also integrate backend pagination which gives the user the best experience to move.
