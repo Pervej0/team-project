@@ -58,6 +58,46 @@ const GiveReview = () => {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
+                <label htmlFor="country-destination" className="sr-only">
+                  Name
+                </label>
+                <input
+                  id="country-destination"
+                  name="country-destination"
+                  type="text"
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  {...register("name", { required: true })}
+                  placeholder="Name"
+                />
+                {errors.name && (
+                  <span className="text-red-500 text-sm italic">
+                    Name is required{" "}
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className="rounded-md shadow-sm -space-y-px">
+              <div>
+                <label htmlFor=" Doner-or-Receiver-destination" className="sr-only">
+                  Doner / Receiver
+                </label>
+                <input
+                  id=" Doner-or-Receiver-destination"
+                  name=" Doner-or-Receiver-destination"
+                  type="text"
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  {...register("DonerORReceiver", { required: true })}
+                  placeholder="Doner-or-Receiver"
+                />
+                {errors.name && (
+                  <span className="text-red-500 text-sm italic">
+                     Doner-or-Receiver is required{" "}
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className="rounded-md shadow-sm -space-y-px">
+              <div>
                 <label htmlFor="title-tour" className="sr-only">
                   Title
                 </label>
@@ -96,26 +136,7 @@ const GiveReview = () => {
                 )}
               </div>
             </div> */}
-            <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="country-destination" className="sr-only">
-                  Name
-                </label>
-                <input
-                  id="country-destination"
-                  name="country-destination"
-                  type="text"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("name", { required: true })}
-                  placeholder="Name"
-                />
-                {errors.name && (
-                  <span className="text-red-500 text-sm italic">
-                    Name is required{" "}
-                  </span>
-                )}
-              </div>
-            </div>
+
             {/* <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <label htmlFor="price" className="sr-only">
