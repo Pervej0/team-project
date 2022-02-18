@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Banner from "../Home/Banner/Banner";
-import PostForm from "./PostForm/PostForm";
 import Post from "./Post/Post";
+import PostForm from "./PostForm/PostForm";
 
 const Home = () => {
   const [postData, setPostData] = useState([]);
@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     fetch(
-      `https://polar-tor-73503.herokuapp.com/post?page=${page}&&size=${size}`
+      // `https://polar-tor-73503.herokuapp.com/post?page=${page}&&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => {
