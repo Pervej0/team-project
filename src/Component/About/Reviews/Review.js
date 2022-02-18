@@ -1,7 +1,7 @@
 import React from "react";
 
 const Review = ({ review }) => {
-  const { name, DonerORReceiver, profession, description } = review;
+  const { name, description, profession, type } = review;
 
   return (
     <>
@@ -9,7 +9,7 @@ const Review = ({ review }) => {
         <div class="overflow-hidden shadow-md">
           <div class="px-6 py-4 bg-white border-b border-gray-200 font-bold uppercase">
             <h2 className="text-center text-3xl text-red-500">
-              {DonerORReceiver} opinion
+              {type} opinion
             </h2>
           </div>
 

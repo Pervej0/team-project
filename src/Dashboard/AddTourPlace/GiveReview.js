@@ -59,7 +59,7 @@ const GiveReview = () => {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
-                <label htmlFor="Name" className="sr-only">
+                <label htmlFor="Name" className="block font-semibold mb-2">
                   Name
                 </label>
                 <input
@@ -68,7 +68,7 @@ const GiveReview = () => {
                   type="text"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   {...register("name", { required: true })}
-                  placeholder="Name"
+                  placeholder="Name here.."
                 />
                 {errors.name && (
                   <span className="text-red-500 text-sm italic">
@@ -79,7 +79,10 @@ const GiveReview = () => {
             </div>
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
-                <label htmlFor="title-tour" className="sr-only">
+                <label
+                  htmlFor="title-tour"
+                  className="block font-semibold mb-2"
+                >
                   Profession
                 </label>
                 <input
@@ -88,7 +91,7 @@ const GiveReview = () => {
                   type="text"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   {...register("profession", { required: true })}
-                  placeholder="Title"
+                  placeholder="Profession here.."
                 />
                 {errors.title && (
                   <span className="text-red-500 text-sm italic">
@@ -97,30 +100,7 @@ const GiveReview = () => {
                 )}
               </div>
             </div>
-
-            <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="place-details" className="sr-only">
-                  Description-details
-                </label>
-                <textarea
-                  id="place-details"
-                  name="place-details"
-                  type="text"
-                  cols="30"
-                  rows="10"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("description", { required: true })}
-                  placeholder="Place-details"
-                />
-                {errors.description && (
-                  <span className="text-red-500 text-sm italic">
-                    Description is required{" "}
-                  </span>
-                )}
-              </div>
-            </div>
-            <div className="pb-8">
+            <div className="pb-0">
               <label className="block font-semibold mb-2">
                 Select your type
               </label>
@@ -135,6 +115,28 @@ const GiveReview = () => {
                 <option value="Donor">Donor</option>
                 <option value="Receipient">Receipient</option>
               </select>
+            </div>
+            <div className="rounded-md shadow-sm -space-y-px">
+              <div>
+                <label htmlFor="place-details" className="sr-only mb-2">
+                  Description-details
+                </label>
+                <textarea
+                  id="place-details"
+                  name="place-details"
+                  type="text"
+                  cols="30"
+                  rows="10"
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                  {...register("description", { required: true })}
+                  placeholder="Share your exprience.."
+                />
+                {errors.description && (
+                  <span className="text-red-500 text-sm italic">
+                    Description is required{" "}
+                  </span>
+                )}
+              </div>
             </div>
             <div>
               <button

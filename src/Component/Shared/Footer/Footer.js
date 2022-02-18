@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="md:mx-20 mx-3 py-12">
         <div className="grid md:grid-cols-3 mb-14 gap-x-5 gap-y-8 sm:grid-cols-2 grid-cols-1">
           <div>
-            <h1 className="text-3xl text-white uppercase mb-6">Contact Us</h1>
+            <h1 className="text-2xl text-white uppercase mb-6">Contact Us</h1>
             <ul>
               <li className="flex text-white gap-x-6 items-baseline mb-3">
                 <span>
@@ -43,7 +43,7 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h1 className="text-3xl text-white uppercase mb-6">Subscribe Us</h1>
+            <h1 className="text-2xl text-white uppercase mb-6">Subscribe Us</h1>
             <p className="text-white">
               Subscribe us to get alert the latest news and views from our side.
             </p>
@@ -59,7 +59,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="ml-6">
-            <h1 className="text-3xl text-white uppercase mb-6">
+            <h1 className="text-2xl text-white uppercase mb-6">
               Important links
             </h1>
             <div className="flex gap-x-16 gap-y-3">

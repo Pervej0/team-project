@@ -47,69 +47,74 @@ const Header = () => {
                       <NavLink to="/chitchat">Message</NavLink>
                       <NavLink to="/about">About</NavLink>
                       <NavLink to="/contact">Contact Us</NavLink>
-                      <Menu as="div" className="hidden lg:block ml-1 relative z-40">
-                    <div>
-                      <Menu.Button className="rounded-md text-lg font-medium">
-                        <span className="sr-only">Open Dashboard</span>
+                      <Menu
+                        as="div"
+                        className="hidden lg:block ml-1 relative z-40"
+                      >
                         <div>
-                          {(user?.displayName || user.email) && (
-                            <h1 className="text-white text-lg font-bold">Dashboard</h1>
-                          )}
+                          <Menu.Button className="rounded-md text-lg font-medium">
+                            <span className="sr-only">Open Dashboard</span>
+                            <div>
+                              {(user?.displayName || user.email) && (
+                                <h1 className="text-white text-lg font-bold">
+                                  Dashboard
+                                </h1>
+                              )}
+                            </div>
+                          </Menu.Button>
                         </div>
-                      </Menu.Button>
-                    </div>
-                    <Transition
-                      as={Fragment}
-                      enter="transition ease-out duration-100"
-                      enterFrom="transform opacity-0 scale-95"
-                      enterTo="transform opacity-100 scale-100"
-                      leave="transition ease-in duration-75"
-                      leaveFrom="transform opacity-100 scale-100"
-                      leaveTo="transform opacity-0 scale-95"
-                    >
-                      <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <Menu.Item>
-                          {({ active }) => (
-                            <NavLink
-                              to="/mypost"
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-lg text-gray-900"
+                        <Transition
+                          as={Fragment}
+                          enter="transition ease-out duration-100"
+                          enterFrom="transform opacity-0 scale-95"
+                          enterTo="transform opacity-100 scale-100"
+                          leave="transition ease-in duration-75"
+                          leaveFrom="transform opacity-100 scale-100"
+                          leaveTo="transform opacity-0 scale-95"
+                        >
+                          <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                            <Menu.Item>
+                              {({ active }) => (
+                                <NavLink
+                                  to="/mypost"
+                                  className={classNames(
+                                    active ? "bg-gray-100" : "",
+                                    "block px-4 py-2 text-lg text-gray-900"
+                                  )}
+                                >
+                                  My Post
+                                </NavLink>
                               )}
-                            >
-                              My Post
-                            </NavLink>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <NavLink
-                              to="/allpost"
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-lg text-gray-900"
+                            </Menu.Item>
+                            <Menu.Item>
+                              {({ active }) => (
+                                <NavLink
+                                  to="/allpost"
+                                  className={classNames(
+                                    active ? "bg-gray-100" : "",
+                                    "block px-4 py-2 text-lg text-gray-900"
+                                  )}
+                                >
+                                  All Post
+                                </NavLink>
                               )}
-                            >
-                              All Post
-                            </NavLink>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <NavLink
-                              to="/AddReview"
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-lg text-gray-900"
+                            </Menu.Item>
+                            <Menu.Item>
+                              {({ active }) => (
+                                <NavLink
+                                  to="/AddReview"
+                                  className={classNames(
+                                    active ? "bg-gray-100" : "",
+                                    "block px-4 py-2 text-lg text-gray-900"
+                                  )}
+                                >
+                                  Add a Review
+                                </NavLink>
                               )}
-                            >
-                              Add a AddReview
-                            </NavLink>
-                          )}
-                        </Menu.Item>
-                      </Menu.Items>
-                    </Transition>
-                  </Menu>
+                            </Menu.Item>
+                          </Menu.Items>
+                        </Transition>
+                      </Menu>
                     </div>
                   </div>
                 </div>
@@ -158,15 +163,61 @@ const Header = () => {
 
             <Disclosure.Panel className="sm:hidden">
               <div className="px-2 pt-2 pb-3 space-y-1">
-                <div className="bg-gray-900 text-white text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  <NavLink to="/home">Home</NavLink>
+                <div>
+                  <NavLink
+                    className="bg-gray-900 text-white text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    to="/home"
+                  >
+                    Home
+                  </NavLink>
                 </div>
-
-                <div className="bg-gray-900 text-white text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  <NavLink to="/about">About</NavLink>
+                <div>
+                  <NavLink
+                    className="bg-gray-900 text-white text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    to="/chitchat"
+                  >
+                    Message
+                  </NavLink>
                 </div>
-                <div className="bg-gray-900 text-white text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  <NavLink to="/contact">Contact Us</NavLink>
+                <div>
+                  <NavLink
+                    className="bg-gray-900 text-white text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    to="/about"
+                  >
+                    About
+                  </NavLink>
+                </div>
+                <div>
+                  <NavLink
+                    className="bg-gray-900 text-white text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    to="/myPost"
+                  >
+                    My Post
+                  </NavLink>
+                </div>
+                <div>
+                  <NavLink
+                    className="bg-gray-900 text-white text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    to="/addReview"
+                  >
+                    Add Review
+                  </NavLink>
+                </div>
+                <div>
+                  <NavLink
+                    className="bg-gray-900 text-white text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    to="/allPost"
+                  >
+                    All Post
+                  </NavLink>
+                </div>
+                <div>
+                  <NavLink
+                    className="bg-gray-900 text-white text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                    to="/contact"
+                  >
+                    Contact Us
+                  </NavLink>
                 </div>
               </div>
             </Disclosure.Panel>
