@@ -9,7 +9,7 @@ const MyPost = () => {
   const [allBookings, setAllBookings] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/post/`)
+    fetch(`https://polar-tor-73503.herokuapp.com/post/`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data.post);

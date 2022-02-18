@@ -18,7 +18,7 @@ const AllPostTable = ({ allBooking }) => {
 
   const handleEditButton = (id) => {
     // reset();
-    fetch(`http://localhost:4000/post/${id}`)
+    fetch(`https://polar-tor-73503.herokuapp.com/post/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -27,7 +27,7 @@ const AllPostTable = ({ allBooking }) => {
       });
   };
   useEffect(() => {
-    fetch("http://localhost:4000/post")
+    fetch("https://polar-tor-73503.herokuapp.com/post")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -43,7 +43,7 @@ const AllPostTable = ({ allBooking }) => {
     setUserUpdate(updateStatus);
     // console.log(updateStatus);
 
-    const url = `http://localhost:4000/post/${data._id}`;
+    const url = `https://polar-tor-73503.herokuapp.com/post/${data._id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -77,7 +77,7 @@ const AllPostTable = ({ allBooking }) => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:4000/post/${id}`, {
+        fetch(`https://polar-tor-73503.herokuapp.com/post/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",

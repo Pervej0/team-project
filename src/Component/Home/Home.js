@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:4000/post?page=${page}&&size=${size}`
+      `https://polar-tor-73503.herokuapp.com/post?page=${page}&&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => {

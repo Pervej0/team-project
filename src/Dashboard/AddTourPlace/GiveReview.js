@@ -22,7 +22,7 @@ const GiveReview = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch("http://localhost:4000/review/", {
+        fetch("https://polar-tor-73503.herokuapp.com/review/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
