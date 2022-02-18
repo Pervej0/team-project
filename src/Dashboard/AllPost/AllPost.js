@@ -1,30 +1,37 @@
 import React, { useEffect, useState } from "react";
-import useAuth from "../../../../hooks/useAuth";
-// import swal from "sweetalert";
-import AllOrdersTable from "../../AllOrders/AllOrdersTable";
+import useAuth from "../../hooks/useAuth";
+import AllPostTable from "./AllPostTable";
 
-const MyOrders = () => {
+const AllPost = () => {
   const { user } = useAuth();
   const [allBookings, setAllBookings] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://ghastly-monster-29562.herokuapp.com/booking`)
+    fetch("https://polar-tor-73503.herokuapp.com/post/")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        // setAllBookings(data);
-        const mybooking = data.filter((dt) => dt.email === user.email);
-        setAllBookings(mybooking);
+        // console.log(data);
+        const datapost = data.post;
+        setAllBookings(datapost);
+        setIsLoading(false);
       });
-  }, [user.email]);
+  }, [user.email, isLoading]);
 
- 
-  // const {email,name,userphotoURL,status,title,department, _id} =allBookings
   return (
-    <div>
+    <div className="md:mx-16 mx-4">
       <h1 className="mt-3 mb-3 text-4xl font-bold text-center pt-3 text-gray-900">
-        My Booking List
+        All Post List
       </h1>
+      {isLoading && (
+        <div>
+          {" "}
+          <div className=" flex justify-center items-center">
+            {" "}
+            <div className="animate-spin rounded-full h-32 w-32 border-t-4 border-b-4 border-purple-500"></div>
+          </div>
+        </div>
+      )}
       <div className="flex flex-col container mx-auto my-8">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -42,7 +49,31 @@ const MyOrders = () => {
                       scope="col"
                       className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Title
+                      Message
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Type
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Date
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Group
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Phone
                     </th>
                     <th
                       scope="col"
@@ -54,19 +85,16 @@ const MyOrders = () => {
                       scope="col"
                       className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Role
-                    </th>
-                    <th scope="col" className="relative px-6 py-3">
-                      <span className="sr-only">Edit</span>
+                      Edit
                     </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                {allBookings.map((allBooking) => (
-                    <AllOrdersTable
+                  {allBookings?.map((allBooking) => (
+                    <AllPostTable
                       allBooking={allBooking}
                       key={allBooking._id}
-                    ></AllOrdersTable>
+                    ></AllPostTable>
                   ))}
                 </tbody>
               </table>
@@ -78,4 +106,4 @@ const MyOrders = () => {
   );
 };
 
-export default MyOrders;
+export default AllPost;

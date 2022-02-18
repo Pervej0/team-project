@@ -11,9 +11,11 @@ import AuthProvider from "./Context/AuthProvider/AuthProvider";
 import Register from "./Authentication/Register/Register";
 import ChitChat from "./Component/ChitChat/ChitChat";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
-import AddReview from "./Component/Dashboard/AddReview/AddReview";
-import MyOrders from "./Component/Dashboard/AddReview/MyOrders/MyOrders";
-import AllOrders from "./Component/Dashboard/AllOrders/AllOrders";
+import GiveReview from "./Dashboard/AddTourPlace/GiveReview";
+import AllPost from "./Dashboard/AllPost/AllPost";
+import MyPost from "./Dashboard/AddTourPlace/MyPost/MyPost";
+
+
 function App() {
   return (
     <div className="App">
@@ -69,27 +71,27 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route
+             <Route
               path="/AddReview"
               element={
                 <PrivateRoute>
-                  <AddReview />
+                  <GiveReview />
                 </PrivateRoute>
               }
             />
             <Route
-              path="/mybooking"
+              path="/mypost"
               element={
                 <PrivateRoute>
-                  <MyOrders />
+                  <MyPost />
                 </PrivateRoute>
               }
             />
             <Route
-              path="/allorders"
+              path="/allpost"
               element={
                 <PrivateRoute>
-                  <AllOrders />
+                  <AllPost />
                 </PrivateRoute>
               }
             />

@@ -1,42 +1,39 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
-import AllOrdersTable from "./AllOrdersTable";
+import AllPostTable from "../../AllPost/AllPostTable";
+// import swal from "sweetalert";
 
-const AllOrders = () => {
+
+const MyPost = () => {
   const { user } = useAuth();
   const [allBookings, setAllBookings] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://ghastly-monster-29562.herokuapp.com/booking")
+    fetch(`https://polar-tor-73503.herokuapp.com/post/`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
-        setAllBookings(data);
-        setIsLoading(false);
+        console.log(data.post);
+        // setAllBookings(data);
+        const datapost = data.post;
+        const mybooking = datapost.filter((dt) => dt.email === user.email);
+        console.log(mybooking);
+        setAllBookings(mybooking);
       });
-  }, [user.email, isLoading]);
+  }, [user.email]);
 
+ 
+  // const {email,name,userphotoURL,status,title,department, _id} =allBookings
   return (
     <div>
       <h1 className="mt-3 mb-3 text-4xl font-bold text-center pt-3 text-gray-900">
-        All Booking List
+        My Post List
       </h1>
-      {isLoading && (
-        <div>
-          {" "}
-          <div className=" flex justify-center items-center">
-            {" "}
-            <div className="animate-spin rounded-full h-32 w-32 border-t-4 border-b-4 border-purple-500"></div>
-          </div>
-        </div>
-      )}
       <div className="flex flex-col container mx-auto my-8">
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+              <thead className="bg-gray-50">
                   <tr>
                     <th
                       scope="col"
@@ -48,31 +45,55 @@ const AllOrders = () => {
                       scope="col"
                       className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Title
+                      Message
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Status
+                      Type
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Role
+                      Date
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Group
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Phone
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Time
                     </th>
                     <th scope="col" className="relative px-6 py-3">
                       <span className="sr-only">Edit</span>
                     </th>
-                  </tr>
+                  <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                      >
+                      Status
+                    </th>
+                      </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {allBookings.map((allBooking) => (
-                    <AllOrdersTable
+                {allBookings?.map((allBooking) => (
+                    <AllPostTable
                       allBooking={allBooking}
                       key={allBooking._id}
-                    ></AllOrdersTable>
+                    ></AllPostTable>
                   ))}
                 </tbody>
               </table>
@@ -84,4 +105,4 @@ const AllOrders = () => {
   );
 };
 
-export default AllOrders;
+export default MyPost;

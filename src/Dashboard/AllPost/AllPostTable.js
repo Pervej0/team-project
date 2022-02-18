@@ -1,31 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import swal from "sweetalert";
 import { useForm } from "react-hook-form";
-import {useLocation } from "react-router";
+import { useLocation } from "react-router";
 
-const AllOrdersTable = ({ allBooking }) => {
+const AllPostTable = ({ allBooking }) => {
+  console.log(allBooking);
   const [allBookings, setAllBookings] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [isLoading, setIsLoading] = useState(true);
   const [updateForm, setupdateForm] = useState(false);
   const [userUpdate, setUserUpdate] = useState({});
 
-  const location = useLocation();
-  const Onlyedit = location.pathname === "/allorders";
-
-console.log(location)
-
+  const history = useLocation();
+  const Onlyedit = history.pathname === "/mypost";
 
   const { register, handleSubmit, reset } = useForm();
 
   const handleEditButton = (id) => {
     // reset();
-    fetch(`https://ghastly-monster-29562.herokuapp.com/booking/${id}`)
+    fetch(`https://polar-tor-73503.herokuapp.com/post/${id}`)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
+        // const statusUpdate = allBookings.filter(()=>allbook.data === data.status)
         setUserUpdate(data);
       });
   };
+  useEffect(() => {
+    fetch("https://polar-tor-73503.herokuapp.com/post")
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        setAllBookings(data);
+        setIsLoading(false);
+      });
+  }, [isLoading]);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -34,7 +43,7 @@ console.log(location)
     setUserUpdate(updateStatus);
     // console.log(updateStatus);
 
-    const url = `https://ghastly-monster-29562.herokuapp.com/booking/${data._id}`;
+    const url = `https://polar-tor-73503.herokuapp.com/post/${data._id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -68,7 +77,7 @@ console.log(location)
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`https://ghastly-monster-29562.herokuapp.com/booking/${id}`, {
+        fetch(`https://polar-tor-73503.herokuapp.com/post/${id}`, {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
@@ -77,7 +86,7 @@ console.log(location)
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount) {
-              const remaining = allBookings.filter(
+              const remaining = allBookings?.filter(
                 (booking) => booking._id !== id
               );
               setAllBookings(remaining);
@@ -94,12 +103,12 @@ console.log(location)
   return (
     <>
       <tr key={allBooking?._id}>
-        <td className="px-6 py-4 whitespace-nowrap">
+        <td className="px-6 py-4 whitespace-nowrap border">
           <div className="flex items-center">
             <div className="flex-shrink-0 h-10 w-10">
               <img
                 className="h-10 w-10 rounded-full"
-                src={allBooking?.userphotoURL}
+                src={allBooking?.photo}
                 alt=""
               />
             </div>
@@ -111,14 +120,27 @@ console.log(location)
             </div>
           </div>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap">
-          <div className="text-sm text-gray-900">{allBooking?.title}</div>
+        <td className="px-6 py-4 whitespace-wrap">
+          <div className="text-sm text-gray-900">{allBooking?.message}</div>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap">
+        <td className="px-6 py-4 whitespace-nowrap border">
+          <div className="text-sm text-gray-900">{allBooking?.type}</div>
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap border">
+          <div className="text-sm text-gray-900">{allBooking?.date}</div>
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap border">
+          <div className="text-sm text-gray-900">{allBooking?.group}</div>
+        </td>
+        <td className="px-6 py-4 whitespace-nowrap border">
+          <div className="text-sm text-gray-900">{allBooking?.phone}</div>
+        </td>
+
+        <td className="px-6 py-4 whitespace-nowrap border">
           {!updateForm && (
             <span
               className={
-                allBooking?.status === "Pending"
+                allBooking?.status === "New"
                   ? "py-2 px-3 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-400 text-grey-900"
                   : "font-bold py-2 px-3 inline-flex text-xs leading-5  rounded-full bg-green-500 bg-opacity-100 text-white"
               }
@@ -130,8 +152,8 @@ console.log(location)
             <div>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <select {...register("status")}>
-                  <option value="Approved">Approved</option>
-                  <option value="Pending">Pending</option>
+                  <option value="New">New</option>
+                  <option value="Donated">Donated</option>
                 </select>
                 <button
                   type="submit"
@@ -143,9 +165,8 @@ console.log(location)
             </div>
           )}
         </td>
-        {
-        Onlyedit && (
-          <td className="px-6 flex justify-center space-x-2 py-4 whitespace-nowrap text-right text-sm font-medium">
+        {!Onlyedit && (
+          <td className="px-6 flex justify-center space-x-2 py-4 whitespace-nowrap border text-right text-sm font-medium">
             <button
               onClick={() => {
                 setupdateForm(true);
@@ -162,11 +183,9 @@ console.log(location)
               Cancel
             </button>
           </td>
-        )
-        }
-        {
-        !Onlyedit && (
-          <td className="px-6 flex justify-center space-x-2 py-4 whitespace-nowrap text-right text-sm font-medium">
+        )}
+        {Onlyedit && (
+          <td className="px-6 flex justify-center space-x-2 py-4 whitespace-nowrap border text-right text-sm font-medium">
             <button
               onClick={() => handleDeleteButton(allBooking?._id)}
               className=" mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
@@ -174,11 +193,10 @@ console.log(location)
               Cancel
             </button>
           </td>
-        )
-        }
+        )}
       </tr>
     </>
   );
 };
 
-export default AllOrdersTable;
+export default AllPostTable;

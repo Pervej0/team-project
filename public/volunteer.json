@@ -1,25 +1,22 @@
 [
-    {
-      "name": "Bablu Mia",
-      "role": "Developer",
-      "image": "https://i.ibb.co/D1h9sJj/bablu.jpg"
-    },
-    {
-      "name": "Pervej Hossain",
-      "role": "Developer",
-      "image": "https://i.ibb.co/VQ79hm7/perbez.jpg"
-    },
-    {
-      "name": "Abdullah Al Noman",
-      "role": "Developer",
-      "image": "https://i.ibb.co/6RGhfDV/noman.jpg"
-    },
-    {
-      "name": "Kazi Abdur Rakib",
-      "role": "Developer",
-      "image": "https://avatars.githubusercontent.com/u/57065763?v=4"
-    }
-  ]
-  
-  
-  
+  {
+    "name": "Pervej Hossain",
+    "role": "Project Manager",
+    "image": "https://i.ibb.co/VQ79hm7/perbez.jpg"
+  },
+  {
+    "name": "Bablu Mia",
+    "role": "Project Coordinator",
+    "image": "https://i.ibb.co/D1h9sJj/bablu.jpg"
+  },
+  {
+    "name": "KAZI ABDUR RAKIB",
+    "role": "Developer",
+    "image": "https://avatars.githubusercontent.com/u/57065763?v=4"
+  },
+  {
+    "name": "Abdullah Al Noman",
+    "role": "UI/UX Designer",
+    "image": "https://i.ibb.co/6RGhfDV/noman.jpg"
+  }
+]
