@@ -1,11 +1,24 @@
-# Getting Started with Blood Donaiton services related App [click here to see live demo](https://team-projects-39f9f.web.app/)
+## Project Intro
 
-### This project was created with  using TailwindCss, React, React-Hook-form, firebase, react router dom, node, express, mongodb, socket.o , backend pagination etc.
+This is blood donation based web application build with MERN.  
+[Click here to see live demo](https://team-projects-39f9f.web.app/)
 
-## This website details and benifit is bellow:
+## Technology
 
-#### This is the best oriented web application for Blood donator and receivers. 
-#### People can easily find and donate the Blood according to their blood group.
-#### It can save People's time and life because they can easily select their blood group according to the website shown blood group.
-#### People's can request an blood easily from anywhate and anytime.  receiver and donator can chat with each other.
-#### So I think this is the best website for Peopless and Hospital also. 
+### This project was created with Tailwind, React, React-Hook-form, firebase, react-router v6, node, express, mongodb, socket.io, react-slick etc.
+
+## The Look
+
+![](https://i.ibb.co/yXDPB7Z/Blood-home-page.png)
+
+## The Features we implemented:
+
+- User can login/register account the process establish through firebase authentication also added Google provider.
+
+- User can post for blood as a type in Donor or Recepient and also can make chit-chat with the post author (Which is under constructing).
+
+- Under user dashboard there are 3 routes where CRUD operation implemented.
+
+- Through Add Review page user can review about his exprience.
+
+- There also integrate backend pagination which gives user best exprience to move.
