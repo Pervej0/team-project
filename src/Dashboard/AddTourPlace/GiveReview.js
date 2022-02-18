@@ -2,10 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import swal from "sweetalert";
-// import UseAuth from '../../Hooks/UseAuth';
 
 const GiveReview = () => {
-  // const { user } = UseAuth();
   const {
     register,
     handleSubmit,
@@ -14,7 +12,10 @@ const GiveReview = () => {
   } = useForm();
   let navigate = useNavigate();
   const onSubmit = (data) => {
-    console.log(data);
+    if (data.type === "Choose") {
+      alert("Please choose your type");
+      return;
+    }
     swal({
       title: "Do you want to add a new place?",
       icon: "warning",
@@ -58,7 +59,7 @@ const GiveReview = () => {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
-                <label htmlFor="Name" className="sr-only">
+                <label htmlFor="Name" className="block font-semibold mb-2">
                   Name
                 </label>
                 <input
@@ -67,7 +68,7 @@ const GiveReview = () => {
                   type="text"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   {...register("name", { required: true })}
-                  placeholder="Name"
+                  placeholder="Name here.."
                 />
                 {errors.name && (
                   <span className="text-red-500 text-sm italic">
@@ -78,36 +79,19 @@ const GiveReview = () => {
             </div>
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
-                <label htmlFor=" Doner-or-Receiver-destination" className="sr-only">
-                  Doner / Receiver
-                </label>
-                <input
-                  id=" Doner-or-Receiver-destination"
-                  name=" Doner-or-Receiver-destination"
-                  type="text"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("DonerORReceiver", { required: true })}
-                  placeholder="Doner-or-Receiver"
-                />
-                {errors.name && (
-                  <span className="text-red-500 text-sm italic">
-                     Doner-or-Receiver is required{" "}
-                  </span>
-                )}
-              </div>
-            </div>
-            <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="title-tour" className="sr-only">
-                  Title
+                <label
+                  htmlFor="title-tour"
+                  className="block font-semibold mb-2"
+                >
+                  Profession
                 </label>
                 <input
                   id="title-tour"
-                  name="title"
+                  name="profession"
                   type="text"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("title", { required: true })}
-                  placeholder="Title"
+                  {...register("profession", { required: true })}
+                  placeholder="Profession here.."
                 />
                 {errors.title && (
                   <span className="text-red-500 text-sm italic">
@@ -116,111 +100,26 @@ const GiveReview = () => {
                 )}
               </div>
             </div>
-            {/* <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="image" className="sr-only">
-                  image
-                </label>
-
-                <input
-                  id="image"
-                  name="img"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("img", { required: true })}
-                  placeholder="Image-link"
-                />
-                {errors.img && (
-                  <span className="text-red-500 text-sm italic">
-                    This Field is required{" "}
-                  </span>
-                )}
-              </div>
-            </div> */}
-
-            {/* <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="price" className="sr-only">
-                  price
-                </label>
-                <input
-                  id="price"
-                  name="price"
-                  type="number"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("price", { required: true })}
-                  placeholder="Price"
-                />
-                {errors.price && (
-                  <span className="text-red-500 text-sm italic">
-                    Price is required{" "}
-                  </span>
-                )}
-              </div>
-            </div> */}
-            {/* <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="location" className="sr-only">
-                  location
-                </label>
-                <input
-                  id="location"
-                  name="location"
-                  type="text"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("location", { required: true })}
-                  placeholder="Place location"
-                />
-                {errors.location && (
-                  <span className="text-red-500 text-sm italic">
-                    Place location is required{" "}
-                  </span>
-                )}
-              </div>
-            </div> */}
-            {/* <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="group-size" className="sr-only">
-                  group-size
-                </label>
-                <input
-                  id="group-size"
-                  name="group-size"
-                  type="number"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("groupsize", { required: true })}
-                  placeholder="Group Size"
-                />
-                {errors.groupsize && (
-                  <span className="text-red-500 text-sm italic">
-                    Group Size is required{" "}
-                  </span>
-                )}
-              </div>
-            </div> */}
-            {/* <div className="rounded-md shadow-sm -space-y-px">
-              <div>
-                <label htmlFor="total-days" className="sr-only">
-                  total-days
-                </label>
-                <input
-                  id="total-days"
-                  name="total-days"
-                  type="number"
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("days", { required: true })}
-                  placeholder="Total-Days"
-                />
-                {errors.days && (
-                  <span className="text-red-500 text-sm italic">
-                    Group Size is required{" "}
-                  </span>
-                )}
-              </div>
-            </div> */}
+            <div className="pb-0">
+              <label className="block font-semibold mb-2">
+                Select your type
+              </label>
+              <select
+                required
+                className="m-0 border w-full py-2 rounded"
+                {...register("type", { required: true })}
+              >
+                <option disabled selected>
+                  Choose
+                </option>
+                <option value="Donor">Donor</option>
+                <option value="Receipient">Receipient</option>
+              </select>
+            </div>
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
-                <label htmlFor="place-details" className="sr-only">
-                Description-details
+                <label htmlFor="place-details" className="sr-only mb-2">
+                  Description-details
                 </label>
                 <textarea
                   id="place-details"
@@ -230,7 +129,7 @@ const GiveReview = () => {
                   rows="10"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   {...register("description", { required: true })}
-                  placeholder="Place-details"
+                  placeholder="Share your exprience.."
                 />
                 {errors.description && (
                   <span className="text-red-500 text-sm italic">
@@ -239,7 +138,6 @@ const GiveReview = () => {
                 )}
               </div>
             </div>
-
             <div>
               <button
                 type="submit"

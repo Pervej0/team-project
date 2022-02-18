@@ -103,7 +103,7 @@ const AllPostTable = ({ allBooking }) => {
   return (
     <>
       <tr key={allBooking?._id}>
-        <td className="px-6 py-4 whitespace-nowrap">
+        <td className="px-6 py-4 whitespace-nowrap border">
           <div className="flex items-center">
             <div className="flex-shrink-0 h-10 w-10">
               <img
@@ -121,29 +121,22 @@ const AllPostTable = ({ allBooking }) => {
           </div>
         </td>
         <td className="px-6 py-4 whitespace-wrap">
-
- <div className="text-sm text-gray-900">{allBooking?.message}</div>
-         
+          <div className="text-sm text-gray-900">{allBooking?.message}</div>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap">
+        <td className="px-6 py-4 whitespace-nowrap border">
           <div className="text-sm text-gray-900">{allBooking?.type}</div>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap">
+        <td className="px-6 py-4 whitespace-nowrap border">
           <div className="text-sm text-gray-900">{allBooking?.date}</div>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap">
+        <td className="px-6 py-4 whitespace-nowrap border">
           <div className="text-sm text-gray-900">{allBooking?.group}</div>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap">
+        <td className="px-6 py-4 whitespace-nowrap border">
           <div className="text-sm text-gray-900">{allBooking?.phone}</div>
         </td>
-        <td className="px-6 py-4 whitespace-nowrap">
-          <div className="text-sm text-gray-900">{allBooking?.time}</div>
-        </td>
-        <td className="px-6 py-4 whitespace-nowrap">
-          <div className="text-sm text-gray-900">{allBooking?.title}</div>
-        </td>
-        <td className="px-6 py-4 whitespace-nowrap">
+
+        <td className="px-6 py-4 whitespace-nowrap border">
           {!updateForm && (
             <span
               className={
@@ -173,7 +166,7 @@ const AllPostTable = ({ allBooking }) => {
           )}
         </td>
         {!Onlyedit && (
-          <td className="px-6 flex justify-center space-x-2 py-4 whitespace-nowrap text-right text-sm font-medium">
+          <td className="px-6 flex justify-center space-x-2 py-4 whitespace-nowrap border text-right text-sm font-medium">
             <button
               onClick={() => {
                 setupdateForm(true);
@@ -192,7 +185,7 @@ const AllPostTable = ({ allBooking }) => {
           </td>
         )}
         {Onlyedit && (
-          <td className="px-6 flex justify-center space-x-2 py-4 whitespace-nowrap text-right text-sm font-medium">
+          <td className="px-6 flex justify-center space-x-2 py-4 whitespace-nowrap border text-right text-sm font-medium">
             <button
               onClick={() => handleDeleteButton(allBooking?._id)}
               className=" mt-2 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"

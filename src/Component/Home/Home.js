@@ -80,7 +80,6 @@ const Home = () => {
                     </p>
                   </div>
                 </div>
-
                 <div className="flex justify-center text-gray-800 dark:text-white md:justify-start items-center space-x-4 py-4 border-b border-gray-200 w-full">
                   <svg
                     width="24"
