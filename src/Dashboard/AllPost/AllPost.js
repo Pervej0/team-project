@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import AllPostTable from "./AllPostTable";
 
-
 const AllPost = () => {
   const { user } = useAuth();
   const [allBookings, setAllBookings] = useState([]);
@@ -20,7 +19,7 @@ const AllPost = () => {
   }, [user.email, isLoading]);
 
   return (
-    <div>
+    <div className="md:mx-16 mx-4">
       <h1 className="mt-3 mb-3 text-4xl font-bold text-center pt-3 text-gray-900">
         All Post List
       </h1>
@@ -38,7 +37,7 @@ const AllPost = () => {
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
+                <thead className="bg-gray-50">
                   <tr>
                     <th
                       scope="col"
@@ -80,16 +79,13 @@ const AllPost = () => {
                       scope="col"
                       className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Time
+                      Status
                     </th>
                     <th
                       scope="col"
                       className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Status
-                    </th>
-                    <th scope="col" className="relative px-6 py-3">
-                      <span className="sr-only">Edit</span>
+                      Edit
                     </th>
                   </tr>
                 </thead>

@@ -10,8 +10,8 @@ const Post = ({ post }) => {
         <div className="flex items-start px-4 py-6">
           <img
             className="w-20 h-20 rounded-full object-cover mr-4 shadow"
-            src={photo}
-            alt=""
+            src={photo || "https://i.ibb.co/SJQMSqC/profile.png"}
+            alt="profile"
           />
           <div className="">
             <div>
