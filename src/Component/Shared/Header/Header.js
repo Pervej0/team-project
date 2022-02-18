@@ -71,26 +71,26 @@ const Header = () => {
                         <Menu.Item>
                           {({ active }) => (
                             <NavLink
-                              to="/mybooking"
+                              to="/mypost"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-lg text-gray-900"
                               )}
                             >
-                              My Booking
+                              My Post
                             </NavLink>
                           )}
                         </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
                             <NavLink
-                              to="/allorders"
+                              to="/allpost"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-lg text-gray-900"
                               )}
                             >
-                              All Bookings
+                              All Post
                             </NavLink>
                           )}
                         </Menu.Item>
