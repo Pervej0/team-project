@@ -130,9 +130,9 @@ const Header = () => {
                           className="h-8 w-8 rounded-full"
                           src={
                             user.photoURL ||
-                            "https://i.ibb.co/SJQMSqC/profile.png"
+                            "https://i.ibb.co/tm2Vtv3/image.png"
                           }
-                          alt=""
+                          alt="profile"
                         />
                       </Menu.Button>
                     </div>

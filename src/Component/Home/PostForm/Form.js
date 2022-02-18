@@ -16,7 +16,7 @@ const Form = () => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
   const onSubmit = (data) => {
-    data.status = 'New';
+    data.status = "New";
     if (data.name === "" || data.email === "") {
       data.name = user.displayName;
       data.email = user.email;
@@ -24,7 +24,7 @@ const Form = () => {
     data.group = bloodRef.current.value;
     data.type = typeRef.current.value;
     data.date = new Date(dateRef.current.value).toLocaleDateString();
-    data.photo = user.photoURL;
+    data.photo = user.photoURL || "https://i.ibb.co/SJQMSqC/profile.png";
     let local = new Date().toLocaleString();
     data.time = local.split(",")[1];
 
