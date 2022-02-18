@@ -10,7 +10,7 @@ const Home = () => {
   const size = 5
 
   useEffect(() => {
-    fetch(`http://localhost:4000/post?page=${page}&&size=${size}`)
+    fetch(`https://serene-spire-70074.herokuapp.com/post?page=${page}&&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
         setPostData(data.post)

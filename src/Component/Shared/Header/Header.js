@@ -97,13 +97,13 @@ const Header = () => {
                         <Menu.Item>
                           {({ active }) => (
                             <NavLink
-                              to="/addtourplace"
+                              to="/AddReview"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-lg text-gray-900"
                               )}
                             >
-                              Add a new Place
+                              Add a AddReview
                             </NavLink>
                           )}
                         </Menu.Item>
