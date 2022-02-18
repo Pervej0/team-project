@@ -12,7 +12,6 @@ const PostForm = () => {
                 <h1 className="text-3xl font-bold tracking-wide text-gray-800 dark:text-white lg:text-5xl">
                   Create Your Post To Reach Your Donor
                 </h1>
-
                 <div className="mt-8 space-y-5">
                   <p className="flex items-center -mx-2 text-gray-700 dark:text-gray-200">
                     <svg

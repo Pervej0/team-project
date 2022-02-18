@@ -11,7 +11,7 @@ const Post = ({ post }) => {
           <img
             className="w-20 h-20 rounded-full object-cover mr-4 shadow"
             src={photo}
-            alt=""
+            alt="profile"
           />
           <div className="">
             <div>
