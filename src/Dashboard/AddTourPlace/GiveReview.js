@@ -2,19 +2,21 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useLocation } from "react-router";
 import swal from "sweetalert";
-// import UseAuth from '../../Hooks/UseAuth';
 
 const GiveReview = () => {
-  // const { user } = UseAuth();
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
+
   const history = useLocation();
   const onSubmit = (data) => {
-    console.log(data);
+    if (data.type === "Choose") {
+      alert("Please choose your type");
+      return;
+    }
     swal({
       title: "Do you want to add a new place?",
       icon: "warning",
@@ -22,7 +24,7 @@ const GiveReview = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch("https://polar-tor-73503.herokuapp.com/post/", {
+        fetch("https://polar-tor-73503.herokuapp.com/review", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -76,6 +78,7 @@ const GiveReview = () => {
                 )}
               </div>
             </div>
+
             {/* <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <label htmlFor="image" className="sr-only">
@@ -199,7 +202,7 @@ const GiveReview = () => {
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
                 <label htmlFor="place-details" className="sr-only">
-                Description-details
+                  Description-details
                 </label>
                 <textarea
                   id="place-details"
@@ -218,7 +221,22 @@ const GiveReview = () => {
                 )}
               </div>
             </div>
-
+            <div className="pb-8">
+              <label className="block font-semibold mb-2">
+                Select your type
+              </label>
+              <select
+                required
+                className="m-0 border w-full py-2 rounded"
+                {...register("type", { required: true })}
+              >
+                <option disabled selected>
+                  Choose
+                </option>
+                <option value="Donor">Donor</option>
+                <option value="Receipient">Receipient</option>
+              </select>
+            </div>
             <div>
               <button
                 type="submit"
