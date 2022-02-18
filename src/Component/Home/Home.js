@@ -11,7 +11,7 @@ const Home = () => {
 
   useEffect(() => {
     fetch(
-      `https://polar-tor-73503.herokuapp.com/post?page=${page}&&size=${size}`
+      `http://localhost:4000/post?page=${page}&&size=${size}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -21,7 +21,7 @@ const Home = () => {
         setPageCount(pageNumber);
       });
   }, [page, postData]);
-  console.log(pageCount);
+  // console.log(pageCount);
   return (
     <>
       <Banner />

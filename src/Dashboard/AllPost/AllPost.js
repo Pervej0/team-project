@@ -9,7 +9,7 @@ const AllPost = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://polar-tor-73503.herokuapp.com/post/")
+    fetch("http://localhost:4000/post/")
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -81,6 +81,12 @@ const AllPost = () => {
                       className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
                       Time
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3  text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Status
                     </th>
                     <th scope="col" className="relative px-6 py-3">
                       <span className="sr-only">Edit</span>

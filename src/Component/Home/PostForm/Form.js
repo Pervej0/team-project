@@ -16,6 +16,7 @@ const Form = () => {
     formState: { errors },
   } = useForm({ mode: "onChange" });
   const onSubmit = (data) => {
+    data.status = 'New';
     if (data.name === "" || data.email === "") {
       data.name = user.displayName;
       data.email = user.email;
@@ -27,7 +28,7 @@ const Form = () => {
     let local = new Date().toLocaleString();
     data.time = local.split(",")[1];
 
-    fetch("https://polar-tor-73503.herokuapp.com/post", {
+    fetch("http://localhost:4000/post", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router";
+import { useNavigate } from "react-router";
 import swal from "sweetalert";
 // import UseAuth from '../../Hooks/UseAuth';
 
@@ -12,7 +12,7 @@ const GiveReview = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const history = useLocation();
+  let navigate = useNavigate();
   const onSubmit = (data) => {
     console.log(data);
     swal({
@@ -22,7 +22,7 @@ const GiveReview = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch("https://polar-tor-73503.herokuapp.com/post/", {
+        fetch("http://localhost:4000/review/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -38,7 +38,7 @@ const GiveReview = () => {
                 timer: 1300,
               });
               reset();
-              history.push("/home");
+              navigate("/home");
             }
           });
       }
@@ -106,10 +106,10 @@ const GiveReview = () => {
                   name="country-destination"
                   type="text"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  {...register("countrydestination", { required: true })}
+                  {...register("name", { required: true })}
                   placeholder="Name"
                 />
-                {errors.countrydestination && (
+                {errors.name && (
                   <span className="text-red-500 text-sm italic">
                     Name is required{" "}
                   </span>
