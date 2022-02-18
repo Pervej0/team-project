@@ -58,12 +58,12 @@ const GiveReview = () => {
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
-                <label htmlFor="country-destination" className="sr-only">
+                <label htmlFor="Name" className="sr-only">
                   Name
                 </label>
                 <input
-                  id="country-destination"
-                  name="country-destination"
+                  id="Name"
+                  name="Name"
                   type="text"
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   {...register("name", { required: true })}
