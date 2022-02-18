@@ -147,7 +147,7 @@ const Header = () => {
                           <h2>{user.displayName}</h2>
                         </Menu.Item>
                         <Menu.Item>
-                          {user ? (
+                          {user.displayName ? (
                             <button
                               className="bg-gray-900 text-white px-10 py-1 rounded my-3"
                               onClick={logOut}
