@@ -128,7 +128,10 @@ const Header = () => {
 
                         <img
                           className="h-8 w-8 rounded-full"
-                          src="https://i.ibb.co/tm2Vtv3/image.png"
+                          src={
+                            user.photoURL ||
+                            "https://i.ibb.co/SJQMSqC/profile.png"
+                          }
                           alt=""
                         />
                       </Menu.Button>
@@ -147,12 +150,21 @@ const Header = () => {
                           <h2>{user.displayName}</h2>
                         </Menu.Item>
                         <Menu.Item>
-                          <button
-                            className="bg-gray-900 text-white px-10 py-1 rounded my-3"
-                            onClick={logOut}
-                          >
-                            Log Out
-                          </button>
+                          {user.email ? (
+                            <button
+                              className="bg-gray-900 text-white px-10 py-1 rounded my-3"
+                              onClick={logOut}
+                            >
+                              Log Out
+                            </button>
+                          ) : (
+                            <NavLink
+                              className="bg-gray-900 text-white px-10 py-1 rounded my-3"
+                              to="/login"
+                            >
+                              Log in
+                            </NavLink>
+                          )}
                         </Menu.Item>
                       </Menu.Items>
                     </Transition>
