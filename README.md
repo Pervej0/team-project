@@ -4,8 +4,8 @@
 
 ## This website details and benifit is bellow:
 
-#### This is the best oriented web application for Blodd donator and receivers. 
+#### This is the best oriented web application for Blood donator and receivers. 
 #### People can easily find and donate the Blood according to their blood group.
 #### It can save People's time and life because they can easily select their blood group according to the website shown blood group.
-#### Treveller's can book an travel place easily from anywhate and anytime. 
-#### So I think this is the best website for Peoples's and Hospital also. 
+#### People's can request an blood easily from anywhate and anytime.  receiver and donator can chat with each other.
+#### So I think this is the best website for Peopless and Hospital also. 
